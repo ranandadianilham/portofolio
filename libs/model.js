@@ -12,7 +12,7 @@ export function loadGLTFModel(
         
         loader.load(
             glbPath,
-            gltf => {
+            (gltf) => {
                 const obj = gltf.scene;
                 obj.name = 'dog';
                 obj.position.x = 0;
@@ -20,13 +20,6 @@ export function loadGLTFModel(
                 obj.receiveShadow = receiveShadow;
                 obj.castShadow = castShadow;
                 scene.add(obj);
-                
-                obj.traverse(function (child) {
-                    if(child.isMesh) {
-                        child.receiveShadow = receiveShadow;
-                        child.castShadow = castShadow;
-                    }
-                });
                 
                 resolve(obj);
             },

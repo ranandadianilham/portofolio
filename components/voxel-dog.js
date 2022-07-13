@@ -12,7 +12,7 @@ function easeOutCirc(x) {
 const VoxelDog = () => {
     const refContainer = useRef();
     const [loading, setLoading] = useState(true);
-    const [renderer, setRenderer] = useState();
+    const [rendererOutside, setRenderer] = useState();
     const [_camera, setCamera] = useState();
     const [target] = useState(new THREE.Vector3(-0.5, 1.2, 0));
     const [initialCameraPosition] = useState(
@@ -28,10 +28,11 @@ const VoxelDog = () => {
     /* eslint-disable react-hooks/exhaustive-deps */
     useEffect(() => {
         const { current : container} = refContainer;
-        if( container && !renderer) {
+        //console.log('end of world', container );
+        if( container && !rendererOutside) {
             const scW = container.clientWidth;
             const scH = container.clientHeight;
-            
+            console.log(`${scW} & ${scH}`);
             const renderer = new THREE.WebGLRenderer({
                 antialias: true,
                 alpha: true
@@ -68,14 +69,16 @@ const VoxelDog = () => {
             loadGLTFModel(scene, '/dog.glb', {
                 receiveShadow: false,
                 castShadow: false,
-            }).then(() => {
+            }).then((obj) => {
+                //console.log('enemy', res);
                 animate();
                 setLoading(false);
-            });
+            })
             
             let req = null;
             let frame = 0;
             const animate = () => {
+                //console.log('animated', frame);
                 req = requestAnimationFrame(animate);
                 frame = frame <= 100 ? frame + 1 : frame;
                 if(frame <= 100) {

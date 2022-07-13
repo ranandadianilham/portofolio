@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Navbar from '../navbar.js'
 import { Box, Container } from '@chakra-ui/react'
-import VoxelDog from '../voxel-dog.js'
+import VoxelDog from '../voxel-dog'
 import NoSsr from '../no-ssr'
 
 const Main = ({ children, router }) => {
