@@ -79,7 +79,7 @@ const VoxelDog = () => {
             loadGLTFModel(scene, '/dog.glb', {
                 receiveShadow: false,
                 castShadow: false,
-            }).then((obj) => {
+            }).then(() => {
                 //console.log('enemy', res);
                 animate();
                 setLoading(false);
