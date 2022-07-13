@@ -1,10 +1,20 @@
-import { Container, Box, Heading, Image, useColorModeValue, Link, Button } from '@chakra-ui/react'
+import { SimpleGrid, Container, Box, Heading, Image, useColorModeValue, Link, Button, List, ListItem, Icon } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import Section from '../components/section';
 import Paragraph from '../components/paragraph';
 import Layout from '../components/layouts/article';
 import { BioSection, BioYear } from '../components/bio';
 import { ChevronRightIcon } from '@chakra-ui/icons';
+import { GridItem } from '../components/grid-item';
+import {
+    IoLogoTwitter,
+    IoLogoInstagram,
+    IoLogoGithub,
+    IoLogoDiscord
+} from 'react-icons/io5'
+import thumbnailYoutube from '../public/images/links/youtube.png';
+import thumbnailInkdrop from '../public/images/works/inkdrop_eyecatch.png';
+
 const Page = () => {
     return (
         <Layout>
@@ -69,6 +79,38 @@ const Page = () => {
                     <Paragraph>
                         <Link>Drawing</Link>, <Link>Music</Link>, & <Link>3D model</Link>
                     </Paragraph>
+                </Section>
+                
+                <Section delay={0.3}>
+                    <Heading as={"h3"} variant="section-title">
+                        On the Web
+                    </Heading>
+                    <List>
+                        <ListItem>
+                            <Link href="https://www.github.com/ranandadianilham" target={"_blank"} />
+                            <Button variant={"ghost"} colorScheme="teal" leftIcon={<Icon as={IoLogoGithub} />}>Rananda Dian</Button>
+                        </ListItem>
+                        <ListItem>
+                            <Link href="https://www.github.com/ranandadianilham" target={"_blank"} />
+                            <Button variant={"ghost"} colorScheme="teal" leftIcon={<Icon as={IoLogoTwitter} />}>Rananda Dian</Button>
+                        </ListItem>
+                        <ListItem>
+                            <Link href="https://www.github.com/ranandadianilham" target={"_blank"} />
+                            <Button variant={"ghost"} colorScheme="teal" leftIcon={<Icon as={IoLogoInstagram} />}>Rananda Dian</Button>
+                        </ListItem>
+                        <ListItem>
+                            <Link href="https://www.github.com/ranandadianilham" target={"_blank"} />
+                            <Button variant={"ghost"} colorScheme="teal" leftIcon={<Icon as={IoLogoDiscord} />}>Rananda Dian</Button>
+                        </ListItem>
+                    </List>
+                    <SimpleGrid columns={[1, 2, 2]} gap={6}>
+                        <GridItem thumbnail={thumbnailYoutube} href={"https://www.youtube.com"} title="Rananda D">
+                            My Youtube Channel
+                        </GridItem>
+                        <GridItem thumbnail={thumbnailInkdrop} href={"https://www.youtube.com"} title="InkDrop">
+                            My Another stuff
+                        </GridItem>
+                    </SimpleGrid>
                 </Section>
             </Container>
         </Layout>
